@@ -20,5 +20,11 @@ namespace CS7NS2_API.Controllers
         {
             return Ok();
         }
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok();
+        }
     }
 }

@@ -35,9 +35,20 @@ namespace CS7NS2_API
         {
 
             services.AddControllers();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CORS_Policy", builder =>
+                {
+                    builder.AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowAnyOrigin();
+                });
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CS7NS2_API", Version = "v1" });
+                c.AddServer(new OpenApiServer { Url = "https://localhost:44300", Description = "Dev" });
+                c.AddServer(new OpenApiServer { Url = "https://facemaskcheck.azurewebsites.net", Description = "Prod" });
             });
         }
 
@@ -58,6 +69,8 @@ namespace CS7NS2_API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("CORS_Policy");
 
             app.UseAuthorization();
 
