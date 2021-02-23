@@ -11,6 +11,7 @@ namespace CS7NS2_API.Controllers
     public class FacemaskController : ControllerBase
     {
         /// <summary>
+        /// POST api/facemask
         /// Check if there is a person wearing a mask
         /// </summary>
         /// <returns>A HTTP response</returns>
