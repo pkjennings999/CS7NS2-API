@@ -17,7 +17,6 @@ namespace CS7NS2_API.Controllers
         [HttpPost]
         public async Task<IActionResult> CheckMask()
         {
-            //TEST
             return Ok();
         }
     }
