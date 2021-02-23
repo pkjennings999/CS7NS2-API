@@ -24,7 +24,7 @@ namespace CS7NS2_API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok();
+            return Ok("Hello IoT Group 6 ;)");
         }
     }
 }
