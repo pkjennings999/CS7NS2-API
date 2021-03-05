@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CS7NS2-API</name>
+    </assembly>
+    <members>
+        <member name="T:CS7NS2_API.Controllers.FacemaskController">
+            <summary>
+            The Facemask controller
+            </summary>
+        </member>
+        <member name="M:CS7NS2_API.Controllers.FacemaskController.CheckMask">
+            <summary>
+            POST api/facemask
+            Check if there is a person wearing a mask
+            </summary>
+            <returns>A HTTP response</returns>
+        </member>
+        <member name="T:CS7NS2_API.Helpers">
+            <summary>
+            Helper functions
+            </summary>
+        </member>
+        <member name="M:CS7NS2_API.Helpers.CallFacemaskModel">
+            <summary>
+            Call the facemask model python script
+            </summary>
+        </member>
+        <member name="T:CS7NS2_API.Program">
+            <summary>
+            The program entry point
+            </summary>
+        </member>
+        <member name="M:CS7NS2_API.Program.Main(System.String[])">
+            <summary>
+            The program entry point
+            </summary>
+            <param name="args">Args</param>
+        </member>
+        <member name="M:CS7NS2_API.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Creates the host builder
+            </summary>
+            <param name="args">Args</param>
+            <returns>The host builder</returns>
+        </member>
+        <member name="T:CS7NS2_API.Startup">
+            <summary>
+            The Startup class
+            </summary>
+        </member>
+        <member name="M:CS7NS2_API.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Startup
+            </summary>
+            <param name="configuration">Application config properties</param>
+        </member>
+        <member name="P:CS7NS2_API.Startup.Configuration">
+            <summary>
+            Configuration
+            </summary>
+        </member>
+        <member name="M:CS7NS2_API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+            </summary>
+            <param name="services">Service Collection</param>
+        </member>
+        <member name="M:CS7NS2_API.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app">Application Builder</param>
+            <param name="env">Web host Environment</param>
+        </member>
+    </members>
+</doc>

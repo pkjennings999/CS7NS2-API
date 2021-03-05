@@ -18,13 +18,19 @@ namespace CS7NS2_API.Controllers
         [HttpPost]
         public async Task<IActionResult> CheckMask()
         {
-            return Ok();
+            string res = await Helpers.CallFacemaskModel();
+            return Ok(res);
         }
 
+        /// <summary>
+        /// GET api/facemask
+        /// Ping the api for a fun response!
+        /// </summary>
+        /// <returns>A fun response</returns>
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok("Hello IoT Group 6 ;)");
+            return Ok("Hello Sean :O");
         }
     }
 }

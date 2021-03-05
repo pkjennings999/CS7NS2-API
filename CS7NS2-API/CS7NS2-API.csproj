@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>$(ProjectRoot)\CS7NS2-API\CS7NS2-API\CS7NS2-API.xml</DocumentationFile>
+    <DocumentationFile>CS7NS2-API.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
