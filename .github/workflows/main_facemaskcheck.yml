@@ -20,9 +20,18 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '5.0.x'
+        
+    - name: Setup Python
+      uses: actions/setup-python@v2.2.1
+      with:
+        # Version range or exact version of a Python version to use, using SemVer's version range syntax.
+        python-version: '3.8.6'
 
     - name: Build with dotnet
       run: dotnet build .\CS7NS2-API\ --configuration Release
+      
+    - name: Pip install
+      run: pip install .\maskDetector\requirements.txt -f https://download.pytorch.org/whl/torch_stable.html
 
     - name: dotnet publish
       run: dotnet publish .\CS7NS2-API\ -c Release -o ${{env.DOTNET_ROOT}}/myapp
