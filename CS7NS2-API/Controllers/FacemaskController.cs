@@ -30,7 +30,7 @@ namespace CS7NS2_API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok("Hello Shaun :O. Apologies for any offense caused.");
+            return Ok("(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ www.youtube.com/watch?v=dQw4w9WgXcQ");
         }
     }
 }
