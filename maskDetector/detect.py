@@ -124,7 +124,7 @@ def detect(save_img=False):
                         label = f'{names[int(cls)]} {conf:.2f}'
 
             # Print time (inference + NMS)
-            # print(f'{s}Done. ({t2 - t1:.3f}s)')
+            print(f'{s}Done. ({t2 - t1:.3f}s)')
 
             # Stream results
             if view_img:
@@ -153,7 +153,7 @@ def detect(save_img=False):
         s = f"\n{len(list(save_dir.glob('labels/*.txt')))} labels saved to {save_dir / 'labels'}" if save_txt else ''
         # print(f"Results saved to {save_dir}{s}")
 
-    print(f'Done. ({time.time() - t0:.3f}s)')
+    # print(f'Done. ({time.time() - t0:.3f}s)')
 
 
 if __name__ == '__main__':
