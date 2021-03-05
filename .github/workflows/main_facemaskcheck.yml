@@ -32,6 +32,9 @@ jobs:
       
     - name: Pip install
       run: pip install -r .\maskDetector\requirements.txt -f https://download.pytorch.org/whl/torch_stable.html
+      
+    - name: Install pyinstaller
+      run: pip install pyinstaller
 
     - name: dotnet publish
       run: dotnet publish .\CS7NS2-API\ -c Release -o ${{env.DOTNET_ROOT}}/myapp
