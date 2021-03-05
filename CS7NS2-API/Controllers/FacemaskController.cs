@@ -18,7 +18,7 @@ namespace CS7NS2_API.Controllers
         [HttpPost]
         public async Task<IActionResult> CheckMask()
         {
-            string res = await Helpers.CallFacemaskModel();
+            string res = await Helpers.CallFacemaskModel("..\\dist\\detect\\detect.exe", "..\\maskDetector\\mask.jpg", "..\\maskDetector\\mask_detector\\weights\\best.pt");
             return Ok(res);
         }
 
@@ -31,6 +31,13 @@ namespace CS7NS2_API.Controllers
         public IActionResult Get()
         {
             return Ok("(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ www.youtube.com/watch?v=dQw4w9WgXcQ");
+        }
+
+        [HttpGet("test")]
+        public async Task<IActionResult> Test(string pathToExe, string pathToImage, string pathToWeights)
+        {
+            string res = await Helpers.CallFacemaskModel(pathToExe, pathToImage, pathToWeights);
+            return Ok(res);
         }
     }
 }

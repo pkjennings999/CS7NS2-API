@@ -15,12 +15,12 @@ namespace CS7NS2_API
         /// <summary>
         /// Call the facemask model python script
         /// </summary>
-        public static async Task<string> CallFacemaskModel()
+        public static async Task<string> CallFacemaskModel(string pathToExe, string pathToImage, string pathToWeights)
         {
             ProcessStartInfo start = new ProcessStartInfo
             {
-                FileName = "..\\maskDetector\\dist\\detect\\detect.exe",
-                Arguments = "--source ..\\maskDetector\\mask.jpg --weights ..\\maskDetector\\mask_detector\\weights\\best.pt --iou-thres 0.3 --conf-thres 0.5",
+                FileName = pathToExe,
+                Arguments = $"--source {pathToImage} --weights {pathToWeights} --iou-thres 0.3 --conf-thres 0.5",
                 UseShellExecute = false,
                 RedirectStandardOutput = true,
                 RedirectStandardError = true

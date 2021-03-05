@@ -28,7 +28,7 @@
             Helper functions
             </summary>
         </member>
-        <member name="M:CS7NS2_API.Helpers.CallFacemaskModel">
+        <member name="M:CS7NS2_API.Helpers.CallFacemaskModel(System.String,System.String,System.String)">
             <summary>
             Call the facemask model python script
             </summary>
