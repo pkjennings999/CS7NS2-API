@@ -371,3 +371,6 @@ maskDetector/runs
 *.spec
 maskDetector/build
 maskDetector/dist
+
+# VS Code local files
+.vscode/
