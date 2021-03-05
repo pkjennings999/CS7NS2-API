@@ -37,7 +37,7 @@ jobs:
       run: pip install pyinstaller
       
     - name: Pack face detector into exe
-      run: pyinstaller --hiddenimport=models.yolo maskDetector\detect.py
+      run: pyinstaller --hiddenimport=models.yolo maskDetector\detect.py -F
 
     - name: dotnet publish
       run: dotnet publish .\CS7NS2-API\ -c Release -o ${{env.DOTNET_ROOT}}/myapp
