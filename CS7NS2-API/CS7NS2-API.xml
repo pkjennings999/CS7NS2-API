@@ -16,6 +16,13 @@
             </summary>
             <returns>A HTTP response</returns>
         </member>
+        <member name="M:CS7NS2_API.Controllers.FacemaskController.Get">
+            <summary>
+            GET api/facemask
+            Ping the api for a fun response!
+            </summary>
+            <returns>A fun response</returns>
+        </member>
         <member name="T:CS7NS2_API.Helpers">
             <summary>
             Helper functions
