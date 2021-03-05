@@ -363,3 +363,11 @@ FodyWeavers.xsd
 
 # virtual env for mask detector model
 maskDetector/venv
+
+# Runs of the mask detector
+maskDetector/runs
+
+# Pyinstaller
+*.spec
+maskDetector/build
+maskDetector/dist
