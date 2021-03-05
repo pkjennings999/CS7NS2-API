@@ -30,7 +30,7 @@ namespace CS7NS2_API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok("Hello Shaun :O. Apologies for any offence caused.");
+            return Ok("Hello Shaun :O. Apologies for any offense caused.");
         }
     }
 }
