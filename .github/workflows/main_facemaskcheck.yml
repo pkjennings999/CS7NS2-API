@@ -38,6 +38,9 @@ jobs:
       
     - name: Pack face detector into exe
       run: pyinstaller --hiddenimport=models.yolo maskDetector\detect.py
+      
+    - name: Move exe to dotnet build
+      run: Move-Item -Path .\dist\* -Destination .\CS7NS2-API\bin\Release\
 
     - name: dotnet publish
       run: dotnet publish .\CS7NS2-API\ -c Release -o ${{env.DOTNET_ROOT}}/myapp
