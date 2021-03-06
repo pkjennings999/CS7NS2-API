@@ -42,8 +42,8 @@ jobs:
     - name: dotnet publish
       run: dotnet publish .\CS7NS2-API\ -c Release -o ${{env.DOTNET_ROOT}}/myapp
       
-   # - name: Move exe to dotnet publish folder
-   #   run: Move-Item -Path .\dist\* -Destination ${{env.DOTNET_ROOT}}/myapp
+    - name: Move exe to dotnet publish folder
+      run: Move-Item -Path .\dist\* -Destination ${{env.DOTNET_ROOT}}/myapp
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
