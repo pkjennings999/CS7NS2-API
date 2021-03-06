@@ -44,6 +44,12 @@ jobs:
       
     - name: Move exe to dotnet publish folder
       run: Move-Item -Path .\dist\* -Destination ${{env.DOTNET_ROOT}}/myapp
+      
+    - name: Move weights to publish folder
+      run: Move-Item -Path .\maskDetector\mask_detector\weights\* -Destination ${{env.DOTNET_ROOT}}/myapp
+      
+    - name: Move test images to publish folder
+      run: Move-Item -Path .\maskDetector\test-images* -Destination ${{env.DOTNET_ROOT}}/myapp
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
