@@ -20,35 +20,17 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '5.0.x'
-        
-   # - name: Setup Python
-   #   uses: actions/setup-python@v2.2.1
-   #   with:
-   #     # Version range or exact version of a Python version to use, using SemVer's version range syntax.
-   #     python-version: '3.8.6'
 
     - name: Build with dotnet
-      run: dotnet build .\CS7NS2-API\ --configuration Release
-      
-   # - name: Pip install
-   #   run: pip install -r .\maskDetector\requirements.txt -f https://download.pytorch.org/whl/torch_stable.html
-      
-   # - name: Install pyinstaller
-   #   run: pip install pyinstaller
-      
-   # - name: Pack face detector into exe
-   #   run: pyinstaller --hiddenimport=models.yolo maskDetector\detect.py
+      run: dotnet build --configuration Release
 
     - name: dotnet publish
-      run: dotnet publish .\CS7NS2-API\ -c Release -o ${{env.DOTNET_ROOT}}/myapp
-      
-   # - name: Move exe to dotnet publish folder
-   #   run: Move-Item -Path .\dist\* -Destination ${{env.DOTNET_ROOT}}/myapp
+      run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
       with:
         app-name: 'facemaskcheck'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_91d73951e2cb4ca989cb927cf1c2f7dd }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_42aabe02489d478fbab9619143f0154e }}
         package: ${{env.DOTNET_ROOT}}/myapp 
