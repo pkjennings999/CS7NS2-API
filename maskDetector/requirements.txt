@@ -29,6 +29,6 @@ pycocotools>=2.0  # COCO mAP
 
 requests
 six
-torch==1.7.0+cu110
-torchvision==0.8.1+cu110
+torch==1.7.0+cpu
+torchvision==0.8.1+cpu
 torchaudio===0.7.0
