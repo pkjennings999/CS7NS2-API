@@ -28,7 +28,7 @@ jobs:
    #     python-version: '3.8.6'
 
     - name: Build with dotnet
-      run: dotnet build --configuration Release
+      run: dotnet build .\CS7NS2-API\ --configuration Release
       
    # - name: Pip install
    #   run: pip install -r .\maskDetector\requirements.txt -f https://download.pytorch.org/whl/torch_stable.html
@@ -40,7 +40,7 @@ jobs:
    #   run: pyinstaller --hiddenimport=models.yolo maskDetector\detect.py
 
     - name: dotnet publish
-      run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+      run: dotnet publish .\CS7NS2-API\ -c Release -o ${{env.DOTNET_ROOT}}/myapp
       
    # - name: Move exe to dotnet publish folder
    #   run: Move-Item -Path .\dist\* -Destination ${{env.DOTNET_ROOT}}/myapp
