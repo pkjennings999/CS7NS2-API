@@ -21,29 +21,29 @@ jobs:
       with:
         dotnet-version: '5.0.x'
         
-    - name: Setup Python
-      uses: actions/setup-python@v2.2.1
-      with:
-        # Version range or exact version of a Python version to use, using SemVer's version range syntax.
-        python-version: '3.8.6'
+   # - name: Setup Python
+   #   uses: actions/setup-python@v2.2.1
+   #   with:
+   #     # Version range or exact version of a Python version to use, using SemVer's version range syntax.
+   #     python-version: '3.8.6'
 
     - name: Build with dotnet
       run: dotnet build .\CS7NS2-API\ --configuration Release
       
-    - name: Pip install
-      run: pip install -r .\maskDetector\requirements.txt -f https://download.pytorch.org/whl/torch_stable.html
+   # - name: Pip install
+   #   run: pip install -r .\maskDetector\requirements.txt -f https://download.pytorch.org/whl/torch_stable.html
       
-    - name: Install pyinstaller
-      run: pip install pyinstaller
+   # - name: Install pyinstaller
+   #   run: pip install pyinstaller
       
-    - name: Pack face detector into exe
-      run: pyinstaller --hiddenimport=models.yolo maskDetector\detect.py
+   # - name: Pack face detector into exe
+   #   run: pyinstaller --hiddenimport=models.yolo maskDetector\detect.py
 
     - name: dotnet publish
       run: dotnet publish .\CS7NS2-API\ -c Release -o ${{env.DOTNET_ROOT}}/myapp
       
-    - name: Move exe to dotnet publish folder
-      run: Move-Item -Path .\dist\* -Destination ${{env.DOTNET_ROOT}}/myapp
+   # - name: Move exe to dotnet publish folder
+   #   run: Move-Item -Path .\dist\* -Destination ${{env.DOTNET_ROOT}}/myapp
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
