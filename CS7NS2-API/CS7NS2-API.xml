@@ -4,6 +4,26 @@
         <name>CS7NS2-API</name>
     </assembly>
     <members>
+        <member name="T:CS7NS2_API.FacemaskCheckConstants">
+            <summary>
+            Constants pertaining to the facemask check script
+            </summary>
+        </member>
+        <member name="F:CS7NS2_API.FacemaskCheckConstants.PATH_TO_EXE">
+            <summary>
+            Path to the facemask check exe script
+            </summary>
+        </member>
+        <member name="F:CS7NS2_API.FacemaskCheckConstants.PATH_TO_WEIGHTS">
+            <summary>
+            Path to the weights file
+            </summary>
+        </member>
+        <member name="F:CS7NS2_API.FacemaskCheckConstants.PATH_TO_IMAGE">
+            <summary>
+            Path to the image to check
+            </summary>
+        </member>
         <member name="T:CS7NS2_API.Controllers.FacemaskController">
             <summary>
             The Facemask controller
@@ -32,6 +52,12 @@
             <summary>
             Call the facemask model python script
             </summary>
+        </member>
+        <member name="M:CS7NS2_API.Helpers.isProd">
+            <summary>
+            Check if the environment is prod or not
+            </summary>
+            <returns>If the environment is prod</returns>
         </member>
         <member name="T:CS7NS2_API.Program">
             <summary>

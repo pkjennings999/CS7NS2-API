@@ -15,12 +15,12 @@ namespace CS7NS2_API
         /// <summary>
         /// Call the facemask model python script
         /// </summary>
-        public static async Task<string> CallFacemaskModel(string pathToExe, string pathToImage, string pathToWeights)
+        public static async Task<string> CallFacemaskModel()
         {
             ProcessStartInfo start = new ProcessStartInfo
             {
-                FileName = pathToExe,
-                Arguments = $"--source {pathToImage} --weights {pathToWeights} --iou-thres 0.3 --conf-thres 0.5",
+                FileName = FacemaskCheckConstants.PATH_TO_EXE,
+                Arguments = $"--source {FacemaskCheckConstants.PATH_TO_IMAGE} --weights {FacemaskCheckConstants.PATH_TO_WEIGHTS} --iou-thres 0.3 --conf-thres 0.5",
                 UseShellExecute = false,
                 RedirectStandardOutput = true,
                 RedirectStandardError = true
@@ -47,6 +47,19 @@ namespace CS7NS2_API
                 output.Append(Environment.NewLine +
                     $"{outLine.Data}");
             }
+        }
+
+        /// <summary>
+        /// Check if the environment is prod or not
+        /// </summary>
+        /// <returns>If the environment is prod</returns>
+        public static bool isProd()
+        {
+#if DEBUG
+            return false;
+#else
+            return true;
+#endif
         }
     }
 }
