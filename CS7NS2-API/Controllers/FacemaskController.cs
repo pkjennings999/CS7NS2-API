@@ -32,12 +32,5 @@ namespace CS7NS2_API.Controllers
         {
             return Ok("(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ www.youtube.com/watch?v=dQw4w9WgXcQ");
         }
-
-        [HttpGet("test")]
-        public async Task<IActionResult> Test()
-        {
-            string res = await Helpers.CallFacemaskModel();
-            return Ok(res);
-        }
     }
 }
