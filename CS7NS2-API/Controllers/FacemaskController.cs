@@ -30,7 +30,8 @@ namespace CS7NS2_API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok("(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ www.youtube.com/watch?v=dQw4w9WgXcQ");
+            return new RedirectResult("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+            //return Ok("(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ www.youtube.com/watch?v=dQw4w9WgXcQ");
         }
     }
 }
