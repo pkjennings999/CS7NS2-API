@@ -377,3 +377,6 @@ dist/
 
 # VS Code local files
 .vscode/
+
+# Outputs
+CS7NS2-API/output.txt

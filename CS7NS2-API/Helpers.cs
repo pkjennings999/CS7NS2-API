@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -60,6 +61,11 @@ namespace CS7NS2_API
 #else
             return true;
 #endif
+        }
+
+        public async static Task SaveData(string data)
+        {
+            await File.WriteAllTextAsync("output.txt", data);
         }
     }
 }

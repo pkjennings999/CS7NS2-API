@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace CS7NS2_API.Controllers
@@ -18,6 +19,11 @@ namespace CS7NS2_API.Controllers
         [HttpPost]
         public async Task<IActionResult> CheckMask()
         {
+            using (StreamReader reader = new StreamReader(Request.Body))
+            {
+                string data = await reader.ReadToEndAsync();
+                await Helpers.SaveData(data);
+            }
             string res = await Helpers.CallFacemaskModel();
             return Ok(res);
         }
