@@ -67,5 +67,15 @@ namespace CS7NS2_API
         {
             await File.WriteAllTextAsync("output.txt", data);
         }
+
+        public async static Task SaveByteData(byte[] data)
+        {
+            await File.WriteAllBytesAsync("outputBytes.txt", data);
+        }
+
+        public async static Task SaveImage(byte[] data)
+        {
+            await File.WriteAllBytesAsync("outputImage.jpg", data);
+        }
     }
 }

@@ -19,10 +19,16 @@ namespace CS7NS2_API.Controllers
         [HttpPost]
         public async Task<IActionResult> CheckMask()
         {
-            using (StreamReader reader = new StreamReader(Request.Body))
+            //using (StreamReader reader = new StreamReader(Request.Body))
+            //{
+            //    string data = await reader.ReadToEndAsync();
+            //    await Helpers.SaveData(data);
+            //}
+            using (MemoryStream ms = new MemoryStream(32768))
             {
-                string data = await reader.ReadToEndAsync();
-                await Helpers.SaveData(data);
+                await Request.Body.CopyToAsync(ms);
+                await Helpers.SaveByteData(ms.ToArray());
+                await Helpers.SaveImage(ms.ToArray());
             }
             string res = await Helpers.CallFacemaskModel();
             return Ok(res);
