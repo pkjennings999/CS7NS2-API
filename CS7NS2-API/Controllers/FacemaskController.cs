@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -19,18 +20,13 @@ namespace CS7NS2_API.Controllers
         [HttpPost]
         public async Task<IActionResult> CheckMask()
         {
-            //using (StreamReader reader = new StreamReader(Request.Body))
-            //{
-            //    string data = await reader.ReadToEndAsync();
-            //    await Helpers.SaveData(data);
-            //}
+            string timestamp = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeMilliseconds().ToString();
             using (MemoryStream ms = new MemoryStream(32768))
             {
                 await Request.Body.CopyToAsync(ms);
-                await Helpers.SaveByteData(ms.ToArray());
-                await Helpers.SaveImage(ms.ToArray());
+                await Helpers.SaveImage(ms.ToArray(), timestamp);
             }
-            string res = await Helpers.CallFacemaskModel();
+            string res = await Helpers.CallFacemaskModel(timestamp);
             return Ok(res);
         }
 
@@ -43,7 +39,7 @@ namespace CS7NS2_API.Controllers
         public IActionResult Get()
         {
             //return new RedirectResult("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
-            return Ok("(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ www.youtube.com/watch?v=dQw4w9WgXcQ");
+            return Ok("(╯°□°）╯︵ ┻━┻ WRONG ENDPOINT!");
         }
     }
 }

@@ -16,12 +16,14 @@ namespace CS7NS2_API
         /// <summary>
         /// Call the facemask model python script
         /// </summary>
-        public static async Task<string> CallFacemaskModel()
+        /// <param name="imageName">The image name to run the check on</param>
+        /// <returns>The output from the script</returns>
+        public static async Task<string> CallFacemaskModel(string imageName)
         {
             ProcessStartInfo start = new ProcessStartInfo
             {
                 FileName = FacemaskCheckConstants.PATH_TO_EXE,
-                Arguments = $"--source {FacemaskCheckConstants.PATH_TO_IMAGE} --weights {FacemaskCheckConstants.PATH_TO_WEIGHTS} --iou-thres 0.3 --conf-thres 0.5",
+                Arguments = $"--source {imageName}.jpg --weights {FacemaskCheckConstants.PATH_TO_WEIGHTS} --iou-thres 0.3 --conf-thres 0.5",
                 UseShellExecute = false,
                 RedirectStandardOutput = true,
                 RedirectStandardError = true
@@ -36,6 +38,9 @@ namespace CS7NS2_API
             process.BeginOutputReadLine();
             process.BeginErrorReadLine();
             await process.WaitForExitAsync();
+
+            // Make sure to delete the image once we are done with it
+            File.Delete($"{imageName}.jpg");
 
             return output.ToString();
         }
@@ -63,19 +68,14 @@ namespace CS7NS2_API
 #endif
         }
 
-        public async static Task SaveData(string data)
+        /// <summary>
+        /// Save an image from a byte array
+        /// </summary>
+        /// <param name="data">The image in byte array format</param>
+        /// <param name="imageName">The name of the image</param>
+        public async static Task SaveImage(byte[] data, string imageName)
         {
-            await File.WriteAllTextAsync("output.txt", data);
-        }
-
-        public async static Task SaveByteData(byte[] data)
-        {
-            await File.WriteAllBytesAsync("outputBytes.txt", data);
-        }
-
-        public async static Task SaveImage(byte[] data)
-        {
-            await File.WriteAllBytesAsync("outputImage.jpg", data);
+            await File.WriteAllBytesAsync($"{imageName}.jpg", data);
         }
     }
 }
