@@ -27,7 +27,22 @@ namespace CS7NS2_API.Controllers
                 await Helpers.SaveImage(ms.ToArray(), timestamp);
             }
             string res = await Helpers.CallFacemaskModel(timestamp);
-            return Ok(res);
+            if (res.Contains("Image Not Found"))
+            {
+                return BadRequest("Image not found");
+            }
+            else if(res.Contains("1 mask, Done."))
+            {
+                return Ok(true);
+            }
+            else if (res.Contains("1 no_mask, Done."))
+            {
+                return Ok(false);
+            }
+            else
+            {
+                return StatusCode(500, $"Unexpected script response: /n{res}");
+            }
         }
 
         /// <summary>

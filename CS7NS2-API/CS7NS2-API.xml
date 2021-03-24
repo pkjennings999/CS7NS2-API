@@ -48,16 +48,25 @@
             Helper functions
             </summary>
         </member>
-        <member name="M:CS7NS2_API.Helpers.CallFacemaskModel">
+        <member name="M:CS7NS2_API.Helpers.CallFacemaskModel(System.String)">
             <summary>
             Call the facemask model python script
             </summary>
+            <param name="imageName">The image name to run the check on</param>
+            <returns>The output from the script</returns>
         </member>
         <member name="M:CS7NS2_API.Helpers.isProd">
             <summary>
             Check if the environment is prod or not
             </summary>
             <returns>If the environment is prod</returns>
+        </member>
+        <member name="M:CS7NS2_API.Helpers.SaveImage(System.Byte[],System.String)">
+            <summary>
+            Save an image from a byte array
+            </summary>
+            <param name="data">The image in byte array format</param>
+            <param name="imageName">The name of the image</param>
         </member>
         <member name="T:CS7NS2_API.Program">
             <summary>
