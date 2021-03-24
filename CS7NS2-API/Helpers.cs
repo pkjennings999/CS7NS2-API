@@ -40,7 +40,7 @@ namespace CS7NS2_API
             await process.WaitForExitAsync();
 
             // Make sure to delete the image once we are done with it
-            File.Delete($"{imageName}.jpg");
+            //File.Delete($"{imageName}.jpg");
 
             return output.ToString();
         }

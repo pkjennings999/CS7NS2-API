@@ -39,6 +39,10 @@ namespace CS7NS2_API.Controllers
             {
                 return Ok(false);
             }
+            else if (res.Contains("Done. "))
+            {
+                return BadRequest("Face not found");
+            }
             else
             {
                 return StatusCode(500, $"Unexpected script response: /n{res}");
