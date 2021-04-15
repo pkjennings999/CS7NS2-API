@@ -24,7 +24,7 @@ namespace CS7NS2_API
             {
                 FileName = FacemaskCheckConstants.PATH_TO_EXE,
                 Arguments = $"--source {imageName}.jpg --weights {FacemaskCheckConstants.PATH_TO_WEIGHTS} --iou-thres 0.3 --conf-thres 0.5",
-                UseShellExecute = false,
+                UseShellExecute = true,
                 RedirectStandardOutput = true,
                 RedirectStandardError = true
             };
@@ -40,7 +40,7 @@ namespace CS7NS2_API
             await process.WaitForExitAsync();
 
             // Make sure to delete the image once we are done with it
-            //File.Delete($"{imageName}.jpg");
+            File.Delete($"{imageName}.jpg");
 
             return output.ToString();
         }
