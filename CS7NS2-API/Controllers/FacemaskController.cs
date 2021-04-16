@@ -45,7 +45,7 @@ namespace CS7NS2_API.Controllers
             }
             else
             {
-                return StatusCode(500, $"Unexpected script response: /n{res}");
+                return StatusCode(500, "Unexpected script response");
             }
         }
 
@@ -57,8 +57,7 @@ namespace CS7NS2_API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            //return new RedirectResult("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
-            return Ok("(╯°□°）╯︵ ┻━┻ WRONG ENDPOINT!");
+            return Ok("Running...");
         }
     }
 }

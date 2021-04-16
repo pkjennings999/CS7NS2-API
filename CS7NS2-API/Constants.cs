@@ -14,10 +14,5 @@
         /// Path to the weights file
         /// </summary>
         public static string PATH_TO_WEIGHTS = Helpers.isProd() ? "best.pt" : "..\\maskDetector\\mask_detector\\weights\\best.pt";
-
-        /// <summary>
-        /// Path to the image to check
-        /// </summary>
-        public static string PATH_TO_IMAGE = Helpers.isProd() ? "test-images\\mask.jpg" : "..\\maskDetector\\test-images\\mask.jpg";
     }
 }

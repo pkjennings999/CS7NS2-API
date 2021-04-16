@@ -19,11 +19,6 @@
             Path to the weights file
             </summary>
         </member>
-        <member name="F:CS7NS2_API.FacemaskCheckConstants.PATH_TO_IMAGE">
-            <summary>
-            Path to the image to check
-            </summary>
-        </member>
         <member name="T:CS7NS2_API.Controllers.FacemaskController">
             <summary>
             The Facemask controller
